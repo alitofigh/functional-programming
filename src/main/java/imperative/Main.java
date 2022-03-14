@@ -1,12 +1,13 @@
 package imperative;
 
+import cls.Person;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static imperative.Main.Gender.FEMALE;
-import static imperative.Main.Gender.MALE;
+import static cls.Gender.FEMALE;
+import static cls.Gender.MALE;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class Main {
         //Imperative approach
         List<Person> females = new ArrayList<>();
         for (Person person : people) {
-            if (FEMALE.equals(person.gender))
+            if (FEMALE.equals(person.getGender()))
                 females.add(person);
         }
 
@@ -33,31 +34,9 @@ public class Main {
         System.out.println("//Declarative approach");
         //Declarative approach
         people.stream()
-                .filter(person -> FEMALE.equals(person.gender))
+                .filter(person -> FEMALE.equals(person.getGender()))
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
 
-    }
-
-    static class Person {
-        private final String name;
-        private final Gender gender;
-
-        Person(String name, Gender gender) {
-            this.name = name;
-            this.gender = gender;
-        }
-
-        @Override
-        public String toString() {
-            return "Person{" +
-                    "name='" + name + '\'' +
-                    ", gender=" + gender +
-                    '}';
-        }
-    }
-
-    enum Gender {
-        MALE, FEMALE
     }
 }
