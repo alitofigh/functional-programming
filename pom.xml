@@ -7,6 +7,8 @@
     <groupId>com.amigoscode</groupId>
     <artifactId>java-functional</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
